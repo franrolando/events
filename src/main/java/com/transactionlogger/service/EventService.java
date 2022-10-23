@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class EventService {
 
-    @Bean
     private EventRepository eventRepository;
     private EventIndexRepository eventIndexRepository;
 
