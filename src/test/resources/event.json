@@ -1,0 +1,18 @@
+{
+  "app": "farlopa",
+  "type": "farlopa",
+  "action": "farlopa",
+  "schema": {
+    "filterIndexes": [
+      {
+        "field": "farlopa",
+        "name": "farlopa"
+      }
+    ],
+    "omits": ["foo"]
+  },
+  "data": {
+    "foo": "bar",
+    "name": "payload"
+  }
+}
