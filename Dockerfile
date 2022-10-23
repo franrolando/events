@@ -1,7 +1,7 @@
 FROM maven:3.8.6-openjdk-18 AS build
-COPY ../src C:/events/src
-COPY ../pom.xml C:/events/
-RUN mvn -f C:/events/pom.xml clean package
+COPY src /home/events/src
+COPY pom.xml /home/events
+RUN mvn -f /home/events/pom.xml clean package
 
 
 FROM openjdk:13-jdk-alpine
