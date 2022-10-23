@@ -8,6 +8,7 @@ maven-wrapper.jar
 maven-wrapper.properties
 mvnw
 mvnw.cmd
+
 ### STS ###
 .apt_generated
 .classpath
