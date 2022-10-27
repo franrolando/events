@@ -7,9 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Data
-@Entity
-@Table(name = "event_index")
+//@Data
+//@Entity
+//@Table(name = "event_index")
 public class EventIndex {
 
     @Id

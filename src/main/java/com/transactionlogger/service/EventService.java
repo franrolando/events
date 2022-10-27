@@ -25,7 +25,7 @@ public class EventService {
     private EventRepository eventRepository;
     private EventIndexRepository eventIndexRepository;
 
-    public EventService(EventRepository eventRepository, EventIndexRepository eventIndexRepository) {
+    public EventService(/*EventRepository eventRepository, EventIndexRepository eventIndexRepository*/) {
         this.eventRepository = eventRepository;
         this.eventIndexRepository = eventIndexRepository;
     }

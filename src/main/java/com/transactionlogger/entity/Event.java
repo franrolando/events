@@ -5,8 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
-@Table(name = "event")
+//@Entity
+//@Table(name = "event")
 public class Event {
 
     @Id

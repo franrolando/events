@@ -19,14 +19,14 @@ import java.lang.reflect.Type;
 @WebMvcTest
 public class EventServiceTest {
 
-    @TestConfiguration
+   /* @TestConfiguration
     static class EmployeeServiceImplTestContextConfiguration {
         @Bean
         public EventService employeeService() {
             return new EventService(null, null) {
             };
         }
-    }
+    }*/
 
     @Autowired
     private EventService eventService;

@@ -32,7 +32,7 @@ public class EventController {
 
     @GetMapping("/healthcheck")
     public ResponseEntity<String> healthcheck(){
-        return new ResponseEntity<>("Working", HttpStatus.ACCEPTED);
+        return new ResponseEntity<>("Working", HttpStatus.OK);
     }
 
 }
