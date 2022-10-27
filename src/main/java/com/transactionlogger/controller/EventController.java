@@ -30,7 +30,7 @@ public class EventController {
         return eventService.searchRecord(searchQueryDto);
     }
 
-    @GetMapping("/healtcheck")
+    @GetMapping("/healthcheck")
     public ResponseEntity<String> healthcheck(){
         return new ResponseEntity<>("Working", HttpStatus.ACCEPTED);
     }
