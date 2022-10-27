@@ -5,6 +5,6 @@ RUN mvn -f /home/app/pom.xml clean package -Dmaven.test.skip
 
 FROM openjdk:13-jdk-alpine
 MAINTAINER cofran.com
-COPY --from=build /usr/app/target/transaction-logger-1.0.0.jar transaction-logger-1.0.0.jar
+COPY --from=build /home/app/target/transaction-logger-1.0.0.jar /usr/local/lib/transaction-logger-1.0.0.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/transaction-logger-1.0.0.jar"]
