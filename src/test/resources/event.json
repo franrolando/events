@@ -5,14 +5,16 @@
   "schema": {
     "filterIndexes": [
       {
-        "field": "farlopa",
-        "name": "farlopa"
+        "field": "bar",
+        "name": "fooFiltering"
       }
     ],
-    "omits": ["foo"]
+    "omits": ["name"]
   },
   "data": {
-    "foo": "bar",
+    "foo": {
+      "bar": "bar"
+    },
     "name": "payload"
   }
 }

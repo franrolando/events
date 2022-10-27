@@ -1,10 +1,12 @@
 FROM maven:3.8.6-openjdk-18 AS build
-COPY src /home/events/src
-COPY pom.xml /home/events
-RUN mvn -f /home/events/pom.xml clean package
 
+ENV HOME=/usr/app
+RUN mkdir -p $HOME
+WORKDIR $HOME
+ADD . $HOME
+RUN mvn package
 
 FROM openjdk:13-jdk-alpine
 MAINTAINER cofran.com
-COPY target/transaction-logger-0.0.1.jar transaction-logger-0.0.1.jar
-ENTRYPOINT ["java","-jar","/transaction-logger-0.0.1.jar"]
+COPY --from=build /usr/app/target/transaction-logger-1.0.0.jar transaction-logger-1.0.0.jar
+ENTRYPOINT ["java","-jar","/transaction-logger-1.0.0.jar"]

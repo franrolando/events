@@ -4,10 +4,9 @@ import java.util.List;
 
 import com.transactionlogger.dto.SearchQueryDto;
 import com.transactionlogger.service.EventService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.transactionlogger.dto.EventDto;
 
@@ -29,6 +28,11 @@ public class EventController {
     @PostMapping("/search")
     public List<EventDto> searchEvents(SearchQueryDto searchQueryDto) {
         return eventService.searchRecord(searchQueryDto);
+    }
+
+    @GetMapping("/healtcheck")
+    public ResponseEntity<String> healthcheck(){
+        return new ResponseEntity<>("Working", HttpStatus.ACCEPTED);
     }
 
 }
