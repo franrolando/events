@@ -1,12 +1,24 @@
 package com.transactionlogger.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Date;
+import com.github.ksuid.Ksuid;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.transactionlogger.dto.EventDto;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-//@Entity
-//@Table(name = "event")
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.HashMap;
+
+@Entity
+@Table(name = "event")
+@NoArgsConstructor
+@Data
 public class Event {
 
     @Id
@@ -16,7 +28,16 @@ public class Event {
     private String action;
     private String schema;
     private String data;
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
+    public Event(EventDto eventDto){
+        this.id = Ksuid.newKsuid().toString();
+        this.app = eventDto.getApp();
+        this.type = eventDto.getType();
+        this.action = eventDto.getAction();
+        this.schema = new Gson().toJson(eventDto.getSchema());
+        this.data = JsonParser.parseString(eventDto.getData().toString()).getAsJsonObject().toString();
+        this.createdAt = LocalDateTime.now();
+    }
 
 }

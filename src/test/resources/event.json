@@ -5,16 +5,32 @@
   "schema": {
     "filterIndexes": [
       {
-        "field": "bar",
-        "name": "fooFiltering"
+        "field": "userDetails.numeros",
+        "name": "numerosFiltering"
+      },{
+        "field": "userDetails.numeros2",
+        "name": "numeros2Filtering"
+      },{
+        "field": "userDetails.numeros3",
+        "name": "numeros3Filtering"
       }
     ],
-    "omits": ["name"]
+    "omits": ["foo"]
   },
   "data": {
     "foo": {
       "bar": "bar"
     },
-    "name": "payload"
+    "userDetails": {
+      "name": "Franco",
+      "surname" : "Rolando",
+      "device": {
+        "brand": "Mac",
+        "model": "M1"
+      },
+      "numeros": [1,2,3],
+      "numeros2": ["a","b","c"],
+      "numeros3": ["d","e","f"]
+    }
   }
 }

@@ -1,22 +1,20 @@
 package com.transactionlogger.dto;
 
-import com.google.gson.JsonObject;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Map;
 
-@Builder
 @Getter
-public class EventDto {
-
-    private String id;
+public class UpdateDto {
     private String app;
     private String type;
     private String action;
+    private String recordId;
+    private String fieldName;
+    private String fieldValue;
+
     private RecordSchemaDto schema;
     @Setter
     private Map<String,Object> data;
-
 }

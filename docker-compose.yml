@@ -1,0 +1,30 @@
+version: '2'
+services:
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    ports:
+      - 5542:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres1
+      - POSTGRES_DB=events
+    volumes:
+      - ./log-directory:/var/lib/postgresql/data
+
+  app:
+    image: 'franff96/generic_database:latest'
+    container_name: app
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/opt/app
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=events
+      - ENV_PORT=8080
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres1
